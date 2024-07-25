@@ -8,6 +8,7 @@
     <title> Kelly Wang's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -30,30 +31,33 @@
     </div>
 
     <section class="home">
-        <div class="home-content">
+        <div class="flex flex-row justify-between w-screen gap-72 items-center"><!--home content-->
+            <div>
+                <h1 style="font-size: 56px; font-weight: 700; line-height: 1.2; color: #b9d4e8;">Hi, I'm Kelly Wang...</h1>
+                <!-- <div class="logo"></div> -->
+                <p>
+                    <br>a high school student attending AYJSS with a passion for data science and health science. I live in
+                    Toronto, and I am always looking to contribute to my community through my interest and curiosity for
+                    learning new things. I'm currently self-learning HTML and CSS.
 
-            <h1>Hi, I'm Kelly Wang...</h1>
-            <div class="logo">
+                    <br><br>At school, I founded the AYJ HOSA chapter, and I'm the President of AYJ MUN.
+
+                    <br><br>In my commitment to my community, I have also represented over 6,000 High School Students in the
+                    Don Valley North Riding in Ontario’s Model Parliament Program, and I am an alumni of SHAD uCalgary '24.
+
+                    You can usually find me working on my projects, grinding Chopin études on the piano, and sampling
+                    various desserts (I love tiramisu the most).<br><br><br>
+                </p>
+                <div class="btn-box flex justify-between w-[345px] h-[50px] bg-transparent">
+                    <a href="https://www.linkedin.com/in/kelly-wang-965091279/" target="_blank">Connect With Me</a>
+                    <a href="mailto:kelly.wangwzs@gmail.com">Contact Me</a>
+                </div>
             </div>
-            <p><br>a high school student attending AYJSS with a passion for data science and health science. I live in
-                Toronto, and I am always looking to contribute to my community through my interest and curiosity for
-                learning new things. I'm currently self-learning HTML and CSS.
+            <img src="kellywang.png" alt="Kelly Wang" class="w-96 h-96 rounded-full"/>
 
-                <br><br>At school, I founded the AYJ HOSA chapter, and I'm the President of AYJ MUN.
-
-                <br><br>In my commitment to my community, I have also represented over 6,000 High School Students in the
-                Don Valley North Riding in Ontario’s Model Parliament Program, and I am an alumni of SHAD uCalgary '24.
-
-                You can usually find me working on my projects, grinding Chopin études on the piano, and sampling
-                various desserts (I love tiramisu the most).<br><br><br>
-            </p>
-            <div class="btn-box">
-                <a href="https://www.linkedin.com/in/kelly-wang-965091279/" target="_blank">Connect With Me</a>
-                <a href="mailto:kelly.wangwzs@gmail.com">Contact Me</a>
-
-
-            </div>
         </div>
+        
+        <span class="home-imgHover"></span>
     </section>
 
 </body>
