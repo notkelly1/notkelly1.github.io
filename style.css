@@ -7,8 +7,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background: #282424;
+body {    
     color: #ffffff;
 }
 
@@ -43,11 +42,15 @@ body {
 
 .navbar a:hover,
 .navbar a.active {
-    color:#b9d4e8
+    background: #282424;
+    color:#b9d4e8;
 }
 
 .home {
     height: 100vh;
+    background: url(Untitled\ design.png) no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     padding: 0 10%;
@@ -146,7 +149,7 @@ body {
     }
 
     .home-sci{
-        margin-left: 102px;
+        margin-left: 150px;
         position: absolute;
         bottom: 40px;
         width: 170px;
@@ -189,6 +192,6 @@ body {
     }
     
     .home-sci a:hover::before {
-        width: 99%;
+        width: 100%;
         
     }
