@@ -72,6 +72,7 @@ body {
 }
 
 .btn-box a{
+    position: relative;
     display: inline-flex;
     width: 150px;
     height: 100%;
@@ -85,8 +86,28 @@ body {
     letter-spacing: 1px;
     align-items: center;
     justify-content: center;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .btn-box a:nth-child(2){
     background: transparent;
+    color: #b9d4e8;
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background:#b9d4e8;
+    opacity: .2;
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box a:hover::before{
+    width: 100%
 }
