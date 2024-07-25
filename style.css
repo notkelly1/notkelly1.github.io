@@ -61,6 +61,7 @@ body {
     font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
+    color: #b9d4e8;
 }
 
 .home-content .btn-box{
@@ -70,7 +71,9 @@ body {
     height: 50px;
     background: transparent;
 }
-
+.btn-box a:hover{
+    color:#b9d4e8
+}
 .btn-box a{
     position: relative;
     display: inline-flex;
@@ -90,11 +93,6 @@ body {
     overflow: hidden;
 }
 
-.btn-box a:nth-child(2){
-    background: transparent;
-    color: #b9d4e8;
-}
-
 .btn-box a::before {
     content: '';
     position: absolute;
@@ -102,12 +100,47 @@ body {
     left: 0;
     width: 0;
     height: 100%;
-    background:#b9d4e8;
-    opacity: .2;
+    background: #282424;
     z-index: -1;
     transition: .5s;
 }
 
 .btn-box a:hover::before{
     width: 100%
+    
 }
+.btn-box a:nth-child(2):hover{
+    color:#282424
+}
+.btn-box a:nth-child(2){
+    background: transparent;
+    color: #b9d4e8;
+}
+
+.btn-box a:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background:#b9d4e8;
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box a:nth-child(2):hover::before{
+    width: 100%
+    
+}
+
+.logo{
+    width: 100px;
+        }
+    
+    .logo img{
+    float: left;
+    margin-left: 0px 0px 0px 30px;
+    width: 150px;
+    height: 38px;
+    }
