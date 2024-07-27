@@ -38,7 +38,15 @@ body {
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
-    transition: 3s;
+    transition: .3s;
+}
+
+.navbar a:hover{
+    color: #b9d4e8;
+}
+.navbar a.active {
+    background: transparent;
+    
 }
 
 .logo::before {
@@ -47,16 +55,12 @@ body {
     top: 0;
     right: 0;
     width: 100%;
-    height: 100%;
+    height: 100%;            
     background: #282424;
     animation: showRight 1s ease forwards;
     animation-delay: .4s;
 }
-.navbar a:hover,
-.navbar a.active {
-    background: transparent;
-    color: #b9d4e8;
-}
+
 
 .home {
     height: 100vh;
@@ -88,7 +92,7 @@ body {
     height: 100%;
     background: #282424;
     animation: showRight 1s ease forwards;
-    animation-delay: 1s;
+    animation-delay: 1.6s;
 }
 
 .home-content .btn-box {
@@ -240,3 +244,18 @@ body {
         width: 0;
     }
 }
+
+/*SCROLLING ACHIEVEMENTS*/
+.scrollable{
+    height: 450px;
+    overflow-y: auto;
+}
+
+html {
+    overflow:   scroll;
+  }
+  
+  ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent; /* make scrollbar transparent */
+  }
