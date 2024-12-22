@@ -6,12 +6,11 @@ html {
     box-sizing: border-box;
     background-color: #282424;
 }
-    
-body {
-    color: #ffffff;
-    font-family: "Poppins", sans-serif;
-}
 
+body {
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+}
 
 .header {
     position: fixed;
@@ -301,6 +300,12 @@ html {
     height: 50px;
     background: transparent;
 }
+
+/* .skibidi {
+    height: 100vh;
+    width: 40vw;
+    
+} */
 
 /*.gh-button{
     display: inline-flex;
