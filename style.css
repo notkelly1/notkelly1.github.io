@@ -4,18 +4,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-<<<<<<< Updated upstream
     background-color: #282424;
 }
 
 body {
     font-family: "Poppins", sans-serif;
-=======
-    font-family: "Poppins", sans-serif;
-}
-
-body {
->>>>>>> Stashed changes
     color: #ffffff;
 }
 
