@@ -188,7 +188,7 @@ body {
     background: transparent;
     display: flex;
     justify-content: space-between;
-    margin-top: 25px; /* Adds nice breathing room under the buttons */
+    margin-top: 50px; /* Adds nice breathing room under the buttons */
 }
 
 .home-sci a {
