@@ -1,0 +1,16 @@
+/*import Poppins font (google API)*/
+@import url("https://fonts.googleapis.com/css?family=Poppins"); 
+
+/*asterisk for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #282424;
+}
+/*body styling*/
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
