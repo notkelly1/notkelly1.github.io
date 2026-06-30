@@ -92,7 +92,7 @@ body {
     line-height: 1.2;
 }
 
-.home-content h1::before {
+/*.home-content h1::before {
     content:'';
     top: 0;
     right: 0;
@@ -101,7 +101,7 @@ body {
     background: #282424;
     animation: showRight 1s ease forwards;
     animation-delay: 1.6s;
-}
+}*/
 
 .home-content .btn-box {
     display: flex;
