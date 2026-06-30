@@ -208,7 +208,7 @@ body {
     overflow: hidden;
 }
 
-.home-sci a::before {
+/*.home-sci a::before {
     content: "";
     position: absolute;
     top: 0;
@@ -242,7 +242,7 @@ body {
 .home-imgHover:hover{
     background:#282424;
     opacity: .8;
-}
+}*/
 
 
 /*KEYFRAMES ANIMATION*/
