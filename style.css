@@ -182,15 +182,13 @@ body {
     height: 38px;
 }
 
-/*social media button*/
+/*social media buttons*/
 .home-sci {
-    margin-left: 150px;
-    position: absolute;
-    bottom: 40px;
     width: 170px;
     background: transparent;
     display: flex;
     justify-content: space-between;
+    margin-top: 25px; /* Adds nice breathing room under the buttons */
 }
 
 .home-sci a {
