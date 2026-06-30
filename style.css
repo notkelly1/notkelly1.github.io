@@ -14,3 +14,295 @@ body {
     color: #fff;
 }
 
+/*header styling*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+/*logo styling that slowly reveals "kelly"*/
+.logo {
+    position: relative;
+    font-size: 25px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logo::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;            
+    background: #282424;
+    animation: showRight 1s ease forwards;
+    animation-delay: .4s;
+}
+
+
+/*nav styling that makes hover effects*/
+.navbar a {
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.navbar a:hover{
+    color: #b9d4e8;
+}
+.navbar a.active {
+    background: transparent;
+    
+}
+
+/*home section styling*/
+.home {
+    height: 100vh;
+    /* background: url(Untitled\ design.png) no-repeat;
+    background-size: cover;
+    background-position: center; */
+    background-color: rgb(40, 36, 36);
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.home-content {
+    max-width: 1000px;
+}
+
+.home-content h1 {
+    position: relative;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.home-content h1::before {
+    content:'';
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #282424;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.6s;
+}
+
+.home-content .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+    background: transparent;
+}
+.btn-box a:hover {
+    color: #b9d4e8;
+}
+.btn-box a {
+    position: relative;
+    display: inline-flex;
+    width: 150px;
+    height: 100%;
+    background: #b9d4e8;
+    border: 2px solid #b9d4e8;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #282424;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn-box a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #282424;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.btn-box a:hover::before {
+    width: 100%;
+}
+.btn-box a:nth-child(2):hover {
+    color: #282424;
+}
+.btn-box a:nth-child(2) {
+    background: transparent;
+    color: #b9d4e8;
+}
+
+.btn-box a:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #b9d4e8;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.btn-box a:nth-child(2):hover::before {
+    width: 100%;
+}
+
+.logo {
+    width: 100px;
+}
+
+.logo img {
+    float: left;
+    margin-left: 0px 0px 0px 30px;
+    width: 150px;
+    height: 38px;
+}
+
+.home-sci {
+    margin-left: 150px;
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #b9d4e8;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #b9d4e8;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-sci a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #b9d4e8;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.home-sci a:hover {
+    color: #282424;
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+}
+
+.home-imgHover{
+    position: absolute;
+    top: 0;
+    right: 5px;
+    width: 50%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid #282424;
+    transition: 3s;  
+}
+
+.home-imgHover:hover{
+    background:#282424;
+    opacity: .8;
+}
+
+
+/*KEYFRAMES ANIMATION*/
+@keyframes showRight{
+    100%{
+        width: 0;
+    }
+}
+
+/*SCROLLING ACHIEVEMENTS*/
+.scrollable{
+    height: 450px;
+    overflow-y: auto;
+}
+
+html {
+    overflow:   scroll;
+  }
+  
+  ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent; /* make scrollbar transparent */
+  }
+
+.proj {
+    height: 100vh;
+    /* background: url(Untitled\ design.png) no-repeat;
+    background-size: cover;
+    background-position: center; */
+    background-color: #282424;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+.proj-content {
+    max-width: 800px;
+}
+
+.proj-content h1 {
+    position: relative;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.proj-content h1::before {
+    content:'';
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #282424;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.6s;
+}
+
+.proj-content .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;
+    background: transparent;
+}
