@@ -1,17 +1,43 @@
 /*import Poppins font (google API)*/
 @import url("https://fonts.googleapis.com/css?family=Poppins"); 
 
+:root {
+    color-scheme: dark;
+    --bg-color: #282424;
+    --text-color: #ffffff;
+    --accent-color: #b9d4e8;
+    --header-bg: #282424;
+    --button-bg: #b9d4e8;
+    --button-text: #282424;
+    --button-outline: #b9d4e8;
+    --card-bg: transparent;
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+    --bg-color: #f5f7fb;
+    --text-color: #1f2937;
+    --accent-color: #0f4c81;
+    --header-bg: #f5f7fb;
+    --button-bg: #0f4c81;
+    --button-text: #ffffff;
+    --button-outline: #0f4c81;
+    --card-bg: transparent;
+}
+
 /*asterisk for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #282424;
+    background-color: var(--bg-color);
 }
 /*body styling*/
 body {
     font-family: 'Poppins', sans-serif;
-    color: #fff;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /*header styling*/
@@ -22,7 +48,7 @@ body {
     width: 100%;
     padding: 20px 10%;
     background: transparent;
-    background-color: #282424;
+    background-color: var(--header-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,7 +59,7 @@ body {
 .logo {
     position: relative;
     font-size: 25px;
-    color: #ffffff;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: 600;
 }
@@ -45,7 +71,7 @@ body {
     right: 0;
     width: 100%;
     height: 100%;            
-    background: #282424;
+    background: var(--header-bg);
     animation: showRight 1s ease forwards;
     animation-delay: .4s;
 }
@@ -54,7 +80,7 @@ body {
 /*nav styling that makes hover effects*/
 .navbar a {
     font-size: 18px;
-    color: #ffffff;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
@@ -62,7 +88,7 @@ body {
 }
 
 .navbar a:hover{
-    color: #b9d4e8;
+    color: var(--accent-color);
 }
 .navbar a.active {
     background: transparent;
@@ -75,7 +101,7 @@ body {
     /* background: url(Untitled\ design.png) no-repeat;
     background-size: cover;
     background-position: center; */
-    background-color: rgb(40, 36, 36);
+    background-color: var(--bg-color);
     display: flex;
     align-items: center;
     padding: 0 10%;
@@ -98,7 +124,7 @@ body {
     right: 0;
     width: 100%;
     height: 100%;
-    background: #282424;
+    background: var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: 1.6s;
 }
@@ -111,18 +137,18 @@ body {
     background: transparent;
 }
 .btn-box a:hover {
-    color: #b9d4e8;
+    color: var(--accent-color);
 }
 .btn-box a {
     position: relative;
     display: inline-flex;
     width: 150px;
     height: 100%;
-    background: #b9d4e8;
-    border: 2px solid #b9d4e8;
+    background: var(--button-bg);
+    border: 2px solid var(--button-outline);
     border-radius: 8px;
     font-size: 12px;
-    color: #282424;
+    color: var(--button-text);
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
@@ -139,7 +165,7 @@ body {
     left: 0;
     width: 0;
     height: 100%;
-    background: #282424;
+    background: var(--bg-color);
     z-index: -1;
     transition: 0.5s;
 }
@@ -148,11 +174,11 @@ body {
     width: 100%;
 }
 .btn-box a:nth-child(2):hover {
-    color: #282424;
+    color: var(--button-text);
 }
 .btn-box a:nth-child(2) {
     background: transparent;
-    color: #b9d4e8;
+    color: var(--accent-color);
 }
 
 .btn-box a:nth-child(2)::before {
@@ -162,7 +188,7 @@ body {
     left: 0;
     width: 0;
     height: 100%;
-    background: #b9d4e8;
+    background: var(--button-bg);
     z-index: -1;
     transition: 0.5s;
 }
@@ -199,10 +225,10 @@ body {
     width: 40px;
     height: 40px;
     background: transparent;
-    border: 2px solid #b9d4e8;
+    border: 2px solid var(--accent-color);
     border-radius: 50%;
     font-size: 20px;
-    color: #b9d4e8;
+    color: var(--accent-color);
     text-decoration: none;
     z-index: 1;
     overflow: hidden;
@@ -274,7 +300,7 @@ html {
     /* background: url(Untitled\ design.png) no-repeat;
     background-size: cover;
     background-position: center; */
-    background-color: #282424;
+    background-color: var(--bg-color);
     display: flex;
     align-items: center;
     padding: 0 10%;
@@ -296,7 +322,7 @@ html {
     right: 0;
     width: 100%;
     height: 100%;
-    background: #282424;
+    background: var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: 1.6s;
 }
@@ -307,6 +333,27 @@ html {
     width: 345px;
     height: 50px;
     background: transparent;
+}
+
+/*theme toggle button*/
+.theme-toggle {
+    margin-left: 20px;
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--accent-color);
+    border-radius: 999px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
 }
 
 /*fixes resize of social media buttons according to gemini*/
