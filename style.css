@@ -141,6 +141,24 @@ body {
     
 }
 
+/*profile picture styling*/
+.profile-img {
+    width: 24rem;   /* w-96 = 24rem (96 × 0.25rem) */
+    height: 24rem;  /* h-96 = 24rem */
+    border-radius: 9999px; /* rounded-full */
+}
+
+/*home intro section styling*/
+.home-hero {
+    /*replaces old tailwind CSS classes (<div class="flex flex-row justify-between w-screen gap-72 items-center">) with custom CSS to allow for more flexibility in styling*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    gap: 18rem; /* gap-72 = 18rem (72 × 0.25rem) */
+    align-items: center;
+}
+
 /*home section styling*/
 .home {
     height: 100vh;
@@ -409,6 +427,17 @@ html {
     display: inline-flex;
     align-items: center;
     padding: 0;
+}
+
+/*changes the profile picture to the isolation image when in light mode*/
+.profile-img-light {
+    display: none;
+}
+:root[data-theme="light"] .profile-img-dark {
+    display: none;
+}
+:root[data-theme="light"] .profile-img-light {
+    display: inline-block;
 }
 
 /*fixes resize of social media buttons according to gemini*/
