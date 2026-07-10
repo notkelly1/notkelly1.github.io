@@ -148,7 +148,8 @@ body {
 
 /*home intro section styling*/
 .home-hero {
-    /*replaces old tailwind CSS classes (<div class="flex flex-row justify-between w-screen gap-72 items-center">) with custom CSS to allow for more flexibility in styling*/
+    /*replaces old tailwind CSS classes (<div class="flex flex-row justify-between w-screen gap-72 items-center">) 
+    with custom CSS to allow for more flexibility in styling*/
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -191,6 +192,7 @@ body {
     animation-delay: 1.6s;
 }
 
+/*home section buttons styling*/
 .home-content .btn-box {
     display: flex;
     justify-content: space-between;
@@ -348,18 +350,21 @@ body {
     overflow-y: auto;
 }
 
+/*scrollbar styling*/
 html {
-    overflow:   scroll;
+    overflow: scroll;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
   }
   
   ::-webkit-scrollbar {
       width: 0px;
-      background: transparent; /* make scrollbar transparent */
+      background: transparent; /*make scrollbar transparent*/
   }
 
 .proj {
     height: 100vh;
-    /* background: url(Untitled\ design.png) no-repeat;
+    /* background: url(Untitled design.png) no-repeat;
     background-size: cover;
     background-position: center; */
     background-color: var(--bg-color);
@@ -448,5 +453,39 @@ html {
         margin-bottom: 30px;
         justify-content: flex-start;
         gap: 15px;
+    }
+}
+
+/*reszing the header and navbar for smaller screens*/
+@media (max-width: 700px) {
+    .home {
+        padding-top: 140px;
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        flex-wrap: wrap;
+        padding: 15px 5%;
+        row-gap: 10px;
+    }
+    .navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .home-hero {
+        flex-direction: column;
+        width: 100%;
+        gap: 2rem;
+    }
+    .home-title {
+        font-size: 32px;
     }
 }
