@@ -335,20 +335,17 @@ html {
     background: transparent;
 }
 
-/*theme toggle button*/
-.theme-toggle {
-    margin-left: 20px;
-    border: 1px solid var(--accent-color);
-    background: transparent;
-    color: var(--accent-color);
-    border-radius: 999px;
-    padding: 8px 12px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 14px;
-    transition: all 0.3s ease;
+/*theme toggle button, display moon in dark mode (default), display sun in light mode*/
+.theme-toggle .theme-icon-light{
+    display: none;
+}
+body.light-mode .theme-toggle .theme-icon-dark{
+    /*body.light-mode checks if JS added the class light-mode to the body tag
+    if yes, then the rest of the CSS rule, display: none applies.*/
+    display: none;
+}
+body.light-mode .theme-toggle .theme-icon-light{
+    display: inline-block;
 }
 
 .theme-toggle:hover {
