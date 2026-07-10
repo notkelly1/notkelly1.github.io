@@ -160,14 +160,12 @@ body {
 
 /*home section styling*/
 .home {
-    height: 100vh;
-    /* background: url(Untitled\ design.png) no-repeat;
-    background-size: cover;
-    background-position: center; */
+    min-height: 100vh;
+    height: auto;
+    padding:  140px 10% 60px; /* top padding of 140px to account for the fixed header, bottom padding of 60px for breathing room */
     background-color: var(--bg-color);
     display: flex;
     align-items: center;
-    padding: 0 10%;
 }
 
 .home-content {
@@ -363,14 +361,14 @@ html {
   }
 
 .proj {
-    height: 100vh;
+    min-height: 100vh;
     /* background: url(Untitled design.png) no-repeat;
     background-size: cover;
     background-position: center; */
     background-color: var(--bg-color);
     display: flex;
     align-items: center;
-    padding: 0 10%;
+    padding: 140px 10% 60px; /* top padding of 140px to account for the fixed header, bottom padding of 60px for breathing room */
 }
 .proj-content {
     max-width: 800px;
