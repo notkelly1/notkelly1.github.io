@@ -15,13 +15,10 @@
             root.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
 
-            if (icon) {
-                icon.textContent = theme === 'dark' ? '☀️' : '🌙';
-                toggle.setAttribute(
-                    'aria-label',
-                    theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
-                );
-            }
+            toggle.setAttribute(
+                'aria-label',
+                theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+            );
         };
 
         applyTheme(root.getAttribute('data-theme') || initialTheme);

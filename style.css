@@ -78,12 +78,19 @@ body {
 
 
 /*nav styling that makes hover effects*/
+.navbar {
+    /*general navbar styling that applies 35px spacing between each child of navbar,
+    regardless if it is an <a> or a button*/
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
 .navbar a {
     font-size: 18px;
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
-    margin-left: 35px;
     transition: .3s;
 }
 
@@ -339,18 +346,30 @@ html {
 .theme-toggle .theme-icon-light{
     display: none;
 }
-body.light-mode .theme-toggle .theme-icon-dark{
-    /*body.light-mode checks if JS added the class light-mode to the body tag
-    if yes, then the rest of the CSS rule, display: none applies.*/
+:root[data-theme="light"] .theme-toggle .theme-icon-dark{
+    /*hides the moon icon in light mode*/
     display: none;
 }
-body.light-mode .theme-toggle .theme-icon-light{
+:root[data-theme="light"] .theme-toggle .theme-icon-light{
+    /*shows the sun icon in light mode*/
     display: inline-block;
 }
 
 .theme-toggle:hover {
     background: var(--accent-color);
     color: var(--bg-color);
+}
+
+/*theme toggle button styling to match the rest of the navbar*/
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
 }
 
 /*fixes resize of social media buttons according to gemini*/
