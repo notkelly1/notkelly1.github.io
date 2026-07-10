@@ -1,6 +1,7 @@
 /*import Poppins font (google API)*/
 @import url("https://fonts.googleapis.com/css?family=Poppins"); 
 
+/*master theme colours*/
 :root {
     color-scheme: dark;
     --bg-color: #282424;
@@ -11,6 +12,7 @@
     --button-text: #282424;
     --button-outline: #b9d4e8;
     --card-bg: transparent;
+    --accent-color: #b9d4e8;
 }
 
 :root[data-theme="light"] {
@@ -23,6 +25,7 @@
     --button-text: #ffffff;
     --button-outline: #0f4c81;
     --card-bg: transparent;
+    --accent-color : #0f4c81;
 }
 
 /*asterisk for all elements */
@@ -32,6 +35,27 @@
     box-sizing: border-box;
     background-color: var(--bg-color);
 }
+
+/*home title styling*/
+.home-title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--accent-color);
+}
+
+/*section title styling*/
+.section-title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--accent-color);
+}
+
+.section-title a {
+    color: var(--accent-color);
+}
+
 /*body styling*/
 body {
     font-family: 'Poppins', sans-serif;
@@ -280,14 +304,14 @@ body {
 }*/
 
 
-/*KEYFRAMES ANIMATION*/
+/*keyframes animation*/
 @keyframes showRight{
     100%{
         width: 0;
     }
 }
 
-/*SCROLLING ACHIEVEMENTS*/
+/*scrolling achievements*/
 .scrollable{
     height: 450px;
     overflow-y: auto;
