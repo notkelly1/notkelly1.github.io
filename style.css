@@ -15,7 +15,7 @@
     --accent-color: #b9d4e8;
 }
 
-:root[data-theme="light"] {
+/*:root[data-theme="light"] {
     color-scheme: light;
     --bg-color: #f5f7fb;
     --text-color: #1f2937;
@@ -26,7 +26,22 @@
     --button-outline: #0f4c81;
     --card-bg: transparent;
     --accent-color : #0f4c81;
+}*/
+
+/*isolation*/
+:root[data-theme="light"] {
+    color-scheme: light;
+    --bg-color: #e9d7ab;
+    --text-color: #aa640e;
+    --accent-color: #6628b3;
+    --header-bg: #e9d7ab;
+    --button-bg: #6628b3;
+    --button-text: #e9d7ab;
+    --button-outline: #6628b3;
+    --card-bg: transparent;
+    --accent-color : #6628b3;
 }
+
 
 /*asterisk for all elements */
 * {
