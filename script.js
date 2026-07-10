@@ -1,34 +1,11 @@
-(function () {
-    const root = document.documentElement;
-    const savedTheme = localStorage.getItem('theme');
-    const initialTheme = savedTheme || 'dark';
+const themeToggle = document.querySelector('.theme-toggle');
 
-    root.setAttribute('data-theme', initialTheme);
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggle = document.querySelector('.theme-toggle');
-        const icon = document.querySelector('.theme-toggle-icon');
-
-        if (!toggle) return;
-
-        const applyTheme = (theme) => {
-            root.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-
-            if (icon) {
-                icon.textContent = theme === 'dark' ? '☀️' : '🌙';
-                toggle.setAttribute(
-                    'aria-label',
-                    theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
-                );
-            }
-        };
-
-        applyTheme(root.getAttribute('data-theme') || initialTheme);
-
-        toggle.addEventListener('click', () => {
-            const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            applyTheme(nextTheme);
-        });
-    });
-})();
+    themeToggle.setAttribute(
+        'aria-label',
+        isLight ? 'Switch to dark mode' : 'Switch to light mode'
+    );
+});
