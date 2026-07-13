@@ -4,12 +4,11 @@
     //const initialTheme = savedTheme || 'dark';
     //use built in browser API (windows.matchMedia) to detect the user's preferred color scheme and set the initial theme accordingly
     const getSystemTheme = () => {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if(!localStorage.getItem('theme')) {
-                root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-            }
-        });
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     };
+    //checks local storage for a saved theme, if none is found, it uses the system theme determined previously
+    const initialTheme = savedTheme || getSystemTheme();
+    root.setAttribute('data-theme', initialTheme);
 
     document.addEventListener('DOMContentLoaded', () => {
         //theme toggle function

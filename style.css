@@ -513,7 +513,7 @@ html {
         justify-content: center;
         gap: 15px;
     }
-    .btn-box{
+    .btn-box{ /*connect with me and contact me buttons*/
         flex-direction: column;
         width: 100%;
         max-width: 345px;
@@ -522,7 +522,7 @@ html {
     }
     .btn-box a{
         width: 100%;
-        max-width: 50px;
+        max-width: 345px;
     }
 }
 
