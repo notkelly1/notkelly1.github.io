@@ -6,26 +6,41 @@
     root.setAttribute('data-theme', initialTheme);
 
     document.addEventListener('DOMContentLoaded', () => {
+        //theme toggle function
         const toggle = document.querySelector('.theme-toggle');
-        const icon = document.querySelector('.theme-toggle-icon');
 
-        if (!toggle) return;
+        if (toggle) {
+            const applyTheme = (theme) => {
+                root.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
 
-        const applyTheme = (theme) => {
-            root.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
+                toggle.setAttribute(
+                    'aria-label',
+                    theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+                );
+            };
+            applyTheme(root.getAttribute('data-theme') || initialTheme);
 
-            toggle.setAttribute(
-                'aria-label',
-                theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
-            );
-        };
+            toggle.addEventListener('click', () => {
+                const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(nextTheme);
+            });
+        }
+        
+        //hamburger menu function (for mobile devices)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('.navbar');
 
-        applyTheme(root.getAttribute('data-theme') || initialTheme);
+        if (menuToggle && navbar) {
+            menuToggle.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                const isActive = navbar.classList.contains('active');
 
-        toggle.addEventListener('click', () => {
-            const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            applyTheme(nextTheme);
-        });
+                menuToggle.setAttribute('aria-label', isActive ? 'Close menu' : 'Open menu');
+                menuToggle.innerHTML = isActive
+                    ? "<i class='bx bx-x'></i>"
+                    : "<i class='bx bx-menu'></i>";
+            });
+        }
     });
 })();

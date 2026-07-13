@@ -474,6 +474,12 @@ html {
         font-size: 32px;
     }
 }*/
+/*header overlap permanent fix*/
+.home, .proj {
+    min-height: 100vh;
+    height: auto;
+    padding: 140px 10% 60px;
+}
 
 /*fixing resize for home section at different benchmarks of screen sizes*/
 /*tablet sizing (<= 1024px), shrinks big gap and heading font size*/
@@ -485,19 +491,34 @@ html {
         font-size: 44px;
     }
 }
+/*hamburger menu styling for mobile screens (applies to header and navbar)*/
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 28px;
+}
 
 /*mobile sizing (<=768px), centers content and adjusts button row*/
 @media (max-width: 768px) {
-    .header{
-        flex-wrap: wrap;
-        padding: 15px 5%;
-        row-gap: 10px;
+    .menu-toggle {
+        display: inline-block; /*inline block vs block?*/
     }
     .navbar{
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
+        display: none; /*hides the navbar on mobile screens*/
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
+        background-color: var(--header-bg);
+        padding: 20px;
+        gap: 20px;
+    }
+    .navbar.active {
+        display: flex; /*shows the navbar when the hamburger menu is clicked*/
     }
     .home-hero{
         flex-direction: column;
@@ -505,18 +526,17 @@ html {
         gap: 2rem;
         text-align: center;
     }
-    .btn-box{
+    .btn-box{ /*connect with me and contact me buttons*/
         width: 100%;
         max-width: 345px;
         margin: 0 auto;
     }
 }
 
-
-/*small mobile sizing (<= 480px)*/
+/*small mobile sizing (<= 480px) that only applies to content (not the header or navbar)*/
 @media (max-width: 480px) {
     .home, .proj{
-        padding: 120px 6% 480px;
+        padding: 120px 6% 40px;
     }
     .home-title{
         font-size: 26px;
@@ -534,3 +554,4 @@ html {
         gap: 10px;
     }
 }
+
