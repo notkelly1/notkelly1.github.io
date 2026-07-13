@@ -276,7 +276,7 @@ body {
     background: transparent;
     display: flex;
     justify-content: space-between;
-    margin-top: 50px; /* Adds nice breathing room under the buttons */
+    margin-top: 50px; /* Adds breathing room under the buttons */
 }
 
 .home-sci a {
@@ -296,7 +296,7 @@ body {
     overflow: hidden;
 }
 
-/* social media sliding fill*/
+/* social media sliding fill (below)*/
 /*.home-sci a::before {
     content: "";
     position: absolute;
@@ -362,9 +362,6 @@ html {
 
 .proj {
     min-height: 100vh; /*changed height to min-height to let the content grow taller than the screen if the content needs more room*/
-    /* background: url(Untitled design.png) no-repeat;
-    background-size: cover;
-    background-position: center; */
     background-color: var(--bg-color);
     display: flex;
     align-items: center;
@@ -441,39 +438,6 @@ html {
     display: inline-block;
 }
 
-/*reszing the header and navbar for smaller screens 
-@media (max-width: 700px) {
-    .home {
-        padding-top: 140px;
-        height: auto;
-        min-height: 100vh;
-    }
-}
-
-@media (max-width: 700px) {
-    .header {
-        flex-wrap: wrap;
-        padding: 15px 5%;
-        row-gap: 10px;
-    }
-    .navbar {
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-        width: 100%;
-    }
-}
-
-@media (max-width: 700px) {
-    .home-hero {
-        flex-direction: column;
-        width: 100%;
-        gap: 2rem;
-    }
-    .home-title {
-        font-size: 32px;
-    }
-}*/
 /*header overlap permanent fix*/
 .home, .proj {
     min-height: 100vh;
@@ -551,7 +515,18 @@ html {
     }
     .btn-box{
         flex-direction: column;
+        width: 100%;
+        max-width: 345px;
         gap: 10px;
+        height: auto; /*vertical stacking of buttons, so height is auto instead of 50px*/
+    }
+    .btn-box a{
+        width: 100%;
+        max-width: 50px;
     }
 }
 
+/*fixes the issue of long words or headings forcing overflow and breaking out of the container*/
+h1, h2 {
+    overflow-wrap: break-word;
+}
