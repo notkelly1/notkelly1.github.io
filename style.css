@@ -643,3 +643,20 @@ h1, h2 {
     height: 100%;
     border: none;
 }
+
+/*styling for back home button for 404 error page*/
+.back-home-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.back-home-btn:hover {
+    opacity: 0.85;
+}
