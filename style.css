@@ -619,6 +619,11 @@ h1, h2 {
     margin-bottom: 15px;
 }
 
+/*accent color for links in carousel slide, added to style linked and imbeds*/
+.carousel-slide p a {
+    color: var(--accent-color);
+}
+
 /*video wrapper for carousel slide*/
 .video-wrapper {
     position: relative;
