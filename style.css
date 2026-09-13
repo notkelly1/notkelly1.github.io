@@ -1025,8 +1025,6 @@ h1, h2 {
 
 /*section headings within the article body*/
 .wiki-section h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 400;
     font-size: 24px;
     color: var(--heading-color);
     border-bottom: 1px solid var(--card-border);
