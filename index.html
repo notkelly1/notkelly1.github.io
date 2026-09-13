@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Kelly Wang's Portfolio</title>
+    <title>Kelly Wang - KellyPedia</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
- 
+
 <body>
     <!--Hamburger Menu for Mobile Screens-->
     <header class="header">
-        <a href="#" class="logo">Kelly.</a>
+        <a href="index.html" class="logo">Kelly.</a>
         <button class = "menu-toggle" type="button" aria-label="Open menu">
             <i class='bx bx-menu'></i>
         </button>
@@ -32,46 +31,180 @@
         </nav>
     </header>
 
-    <!--Home Content-->
-    <section class="home">
-        <!--Page Contents (scrollable region and bottom buttons)-->
-        <div class="home-hero">
-            <div>
-                <!--<h1 style="font-size: 56px; font-weight: 700; line-height: 1.2; color: #b9d4e8;">Hi, I'm Kelly Wang...</h1>-->
-                <h1 class="home-title">Hi, I'm Kelly Wang...</h1>
-                <p>
-                <br> an incoming CS student at the University of Waterloo, skilled in critical thinking, collaboration, 
-                and problem-solving. I am strongly interested in the social impact of programming and technology in the world 
-                around us. 
+    <!--Main article, styled like a Wikipedia page about a person-->
+    <section class="wiki-page">
+        <div class="wiki-container">
 
-                <br><br>During High School, I joined St. Michael’s Hospital as a co-op student, founded the HOSA chapter, 
-                and was the President of MUN, where our school won "Best Small Delegation" at SOMA for two consecutive years!
-
-                <br><br>In my commitment to my community, I have also represented over 6,000 High School Students in the
-                Don Valley North Riding in Ontario’s Model Parliament Program, and I am an alumni of SHAD uCalgary '24.
-
-                You can usually find me working on my projects, playing piano duets with my friends, and sampling
-                various desserts (I love tiramisu the most).<br><br>
-                </p>
-                <!--Large Buttons in Home Content-->
-                <div class="btn-box flex justify-between w-[345px] h-[50px] bg-transparent">
-                    <a href="https://www.linkedin.com/in/zkellywang/" target="_blank">Connect With Me</a>
-                    <a href="mailto:kelly.wangwzs@gmail.com" target="_blank">Contact Me</a>
-                </div>
-                <!--Bottom Button Shortcuts, fixed links on all pages to target blank in order to open in new tab -->
-                <div class="home-sci">
-                    <a href="https://www.linkedin.com/in/zkellywang/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                    <a href="https://github.com/notkelly1" target="_blank"><i class='bx bxl-github'></i></a>
-                    <a href="mailto:kelly.wangwzs@gmail.com" target="_blank"><i class='bx bx-envelope' ></i></a>
-                </div>
-                <br>
+            <!--faux Article/Talk tabs-->
+            <div class="wiki-tabs">
+                <span class="current">Article</span>
+                <a href="mailto:kelly.wangwzs@gmail.com">Talk</a>
             </div>
-            <!--Profile Picture, updated path following image folder organization-->
-            <img src="images/kellywang.png" alt="Kelly Wang" class="profile-img profile-img-dark"/>
-            <img src="images/isolation.png" alt="Kelly Wang" class="profile-img profile-img-light"/>
+
+            <h1 class="wiki-title">Kelly Wang</h1>
+            <p class="wiki-byline">From KellyPedia, the personal encyclopedia</p>
+
+            <!--faux Read/Edit/View history row, Edit and View history point to the real GitHub source-->
+            <div class="wiki-toolbar">
+                <span class="current">Read</span>
+                <a href="https://github.com/notkelly1/notkelly1.github.io/edit/main/index.html" target="_blank">Edit</a>
+                <a href="https://github.com/notkelly1/notkelly1.github.io/commits/main/index.html" target="_blank">View history</a>
+            </div>
+
+            <!--infobox-->
+            <aside class="infobox">
+                <div class="infobox-title">Kelly Wang</div>
+                <img src="images/kellywang.png" alt="Kelly Wang">
+                <div class="infobox-caption">Kelly Wang, 2026</div>
+                <table>
+                    <tr><th>Nationality</th><td>Canadian</td></tr>
+                    <tr><th>Alma mater</th><td>University of Waterloo <em>(expected 2030)</em></td></tr>
+                    <tr><th>Occupation</th><td>Computer science student, software developer</td></tr>
+                    <tr><th>Known for</th><td><a href="#bbda">bing bang dream adventure</a>, <a href="#sightread">Sightread Showdown</a>, <a href="#codepull">Codepull</a></td></tr>
+                    <tr><th>Awards</th><td>Toronto Science Fair Gold Medal, DECA ICDC Finalist, Yale MUN Best Delegate</td></tr>
+                    <tr><th>Website</th><td><a href="https://github.com/notkelly1" target="_blank">github.com/notkelly1</a></td></tr>
+                </table>
+            </aside>
+
+            <!--lead paragraph-->
+            <div class="wiki-lead">
+                <p><strong>Kelly (Zishan) Wang</strong> is a Canadian computer science student and software developer from the Don Valley North area of Toronto, Ontario. She is an incoming student in the Honours Bachelor of Computer Science Co-op program at the <a href="#education">University of Waterloo</a>, and is known for hackathon and science-fair <a href="#projects">projects</a> including <em>bing bang dream adventure</em>, <em>Sightread Showdown</em>, and <em>Codepull</em>. She has held leadership roles including President of the AYJ Model United Nations Club and Deputy Premier in Ontario's Model Parliament Program, and has completed internships at organizations including St. Michael's Hospital and Waxis Inc.</p>
+            </div>
+
+            <!--Contents box-->
+            <nav class="contents-box" id="toc">
+                <div class="contents-box-header">
+                    <span>Contents</span>
+                    <button type="button" class="contents-box-toggle" id="toc-toggle">hide</button>
+                </div>
+                <ul class="contents-list" id="toc-list">
+                    <li><span class="num">1</span><a href="#education">Early life and education</a></li>
+                    <li><span class="num">2</span><a href="#experience">Experience</a>
+                        <ul class="contents-sublist">
+                            <li><span class="num">2.1</span><a href="#waxis-inc">Waxis Inc</a></li>
+                            <li><span class="num">2.2</span><a href="#st-michaels">St. Michael's Hospital</a></li>
+                            <li><span class="num">2.3</span><a href="#shad-canada">SHAD Canada</a></li>
+                            <li><span class="num">2.4</span><a href="#legislative-assembly">Legislative Assembly of Ontario</a></li>
+                            <li><span class="num">2.5</span><a href="#ayj-mun">AYJ Model United Nations Club</a></li>
+                        </ul>
+                    </li>
+                    <li><span class="num">3</span><a href="#projects">Projects</a></li>
+                    <li><span class="num">4</span><a href="#achievements">Achievements</a></li>
+                    <li><span class="num">5</span><a href="#skills">Skills</a></li>
+                    <li><span class="num">6</span><a href="#external-links">External links</a></li>
+                </ul>
+            </nav>
+
+            <!--Early life and education-->
+            <section class="wiki-section" id="education">
+                <h2>Early life and education</h2>
+                <p>Wang attended AY Jackson Secondary School's Gifted Program in Toronto, Ontario, from 2022 to 2026, taking AP Statistics and AP Calculus alongside leadership roles in Model United Nations, DECA, and student government. In 2026, she began the Honours Bachelor of Computer Science Co-op program at the University of Waterloo, where she holds the Thiruchelvam Scholarship for Women in Technology and the President's Scholarship of Distinction.</p>
+            </section>
+
+            <!--Experience-->
+            <section class="wiki-section" id="experience">
+                <h2>Experience</h2>
+
+                <h3 id="waxis-inc">Waxis Inc</h3>
+                <p class="wiki-meta">AI Engineering Intern &middot; June 2026 &ndash; August 2026</p>
+                <ul>
+                    <li>Implemented a working content creation flow in the MiniLife app using React and Node.js, integrating live restaurant search across a database of 300+ real restaurants in Toronto and creating a new media upload pipeline.</li>
+                    <li>Built an AI agent for restaurant discovery, with multi-step tool-calling and a live LLM integration.</li>
+                </ul>
+
+                <h3 id="st-michaels">St. Michael's Hospital</h3>
+                <p class="wiki-meta">COOP Student &middot; September 2024 &ndash; February 2025</p>
+                <ul>
+                    <li>Assisted with patient and administrative deployment of the MyChart application in the Neonatal Intensive Care Unit.</li>
+                    <li>Executed high-volume data entry and document retention management, and performed quality assurance during automated testing preparation (VITEK) in the Microbiology Lab.</li>
+                    <li>Led educational seminars for 20+ COOP students across the Unity Health Toronto hospital network.</li>
+                </ul>
+
+                <h3 id="shad-canada">SHAD Canada</h3>
+                <p class="wiki-meta">SHAD Fellow &amp; Student Ambassador &middot; July 2024 &ndash; June 2026</p>
+                <ul>
+                    <li>Promoted SHAD to prospective applicants and won "Best Demonstration of Theme" for design project "BioSmart".</li>
+                </ul>
+
+                <h3 id="legislative-assembly">Legislative Assembly of Ontario</h3>
+                <p class="wiki-meta">Deputy Premier &amp; Student Representative &middot; November 2023 &ndash; March 2024</p>
+                <ul>
+                    <li>Represented 6,000+ students in Don Valley North and led a party of 50+ student MPPs to draft co-op legislation.</li>
+                </ul>
+
+                <h3 id="ayj-mun">AYJ Model United Nations Club</h3>
+                <p class="wiki-meta">President &middot; February 2023 &ndash; June 2026</p>
+                <ul>
+                    <li>Led 50+ members, doubled club size, and won "Best Small Delegation" at the Southern Ontario Model UN Assembly for two consecutive years.</li>
+                </ul>
+            </section>
+
+            <!--Projects-->
+            <section class="wiki-section" id="projects">
+                <h2>Projects</h2>
+
+                <h3 id="bbda">bing bang dream adventure (2026)</h3>
+                <p>A <em>Bad Apple!!</em> rhythm game synced to custom IMU-based flick controllers with six-direction input, inspired by Project Sekai and Beat Saber. A Python bridge service reads the controller's motion data over USB or WiFi and feeds flicks into the Godot-based game in real time. <a href="https://github.com/flyingf15h/bing-bang-dream-adventure" target="_blank">Source code</a>.</p>
+
+                <h3 id="codepull">Codepull (2026)</h3>
+                <p>A web app that gamifies coding by turning time spent programming into gacha pulls, using the Hackatime API to convert every 10 minutes coded into a pull. Built with React and Vite. <a href="https://github.com/notkelly1/codepull" target="_blank">Source code</a>.</p>
+
+                <h3 id="sightread">Sightread Showdown (2025)</h3>
+                <p>A sight-reading platform built at Jamhacks 9 that lets users compete by sight-reading pieces; the app converts audio input into a sequence of pitches and durations and uses the Gemini AI API to score accuracy. <a href="https://github.com/erynidye/SightreadShowdown" target="_blank">Source code</a> &middot; <a href="https://dorahacks.io/buidl/26378/" target="_blank">Dorahacks</a>.</p>
+
+                <h3 id="hose">Home Optimization of Sterilization Economically (2024)</h3>
+                <p>A regression-model-backed prototype, trained on data collected over six months of experimentation, aimed at making household item sterilization more accessible. Won a Gold Medal at the Toronto Science Fair. <a href="https://github.com/wither-rose/TSF2024" target="_blank">Source code</a> &middot; <a href="https://devpost.com/software/tsf2024" target="_blank">Devpost</a>.</p>
+
+                <h3 id="pencil">The Pencil Project (2023)</h3>
+                <p>A prototype pencil designed to reduce environmental waste by 92% compared to a traditional pencil. Won a Bronze Medal at the Toronto Science Fair. <a href="https://studio.code.org/projects/applab/Ylw6PbPn6nHVKLx6sCyOF1x2zAUqIgdOTyzcDobE7Rs" target="_blank">View project</a>.</p>
+            </section>
+
+            <!--Achievements-->
+            <section class="wiki-section" id="achievements">
+                <h2>Achievements</h2>
+                <ul>
+                    <li><strong>DECA ICDC Finalist</strong> &mdash; Top 10 Exam, Principles of Finance</li>
+                    <li><strong>Toronto Science Fair</strong> &mdash; Gold Medal</li>
+                    <li><strong>Yale Model UN</strong> &mdash; Best Delegate</li>
+                    <li><strong>Waterloo Galois Contest</strong> &mdash; Honour Roll</li>
+                    <li><strong>Waterloo Euclid Contest</strong> &mdash; Top 25%</li>
+                    <li><strong>RCM</strong> &mdash; Level 10 Theory, Level 9 Piano</li>
+                    <li><strong>CPR-C</strong> Certified</li>
+                    <li><strong>University of Waterloo</strong> &mdash; Thiruchelvam Scholarship for Women in Technology; President's Scholarship of Distinction</li>
+                </ul>
+            </section>
+
+            <!--Skills-->
+            <section class="wiki-section" id="skills">
+                <h2>Skills</h2>
+                <ul class="skills-tags">
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>Docker</li>
+                    <li>REST APIs</li>
+                    <li>Git</li>
+                    <li>Figma</li>
+                    <li>Microsoft Office Suite</li>
+                    <li>English</li>
+                    <li>Mandarin (Native)</li>
+                    <li>French (Conversational)</li>
+                </ul>
+            </section>
+
+            <!--External links-->
+            <section class="wiki-section" id="external-links">
+                <h2>External links</h2>
+                <ul>
+                    <li><a href="https://github.com/notkelly1" target="_blank">GitHub &mdash; notkelly1</a></li>
+                    <li><a href="https://www.linkedin.com/in/zkellywang/" target="_blank">LinkedIn &mdash; zkellywang</a></li>
+                    <li><a href="mailto:kelly.wangwzs@gmail.com">Email &mdash; kelly.wangwzs@gmail.com</a></li>
+                </ul>
+            </section>
+
         </div>
     </section>
-    <!--Dark Mode Toggle Script-->
     <script src="script.js"></script>
 </body>
 </html>

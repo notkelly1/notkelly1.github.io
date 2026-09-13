@@ -1,43 +1,38 @@
-/*import Poppins font (google API)*/
-@import url("https://fonts.googleapis.com/css?family=Poppins"); 
-
-/*master theme colours*/
+/*master theme colours, modelled on Wikipedia's light article look and its dark "night mode".
+  Light is the true default (bare :root) so the page never flashes dark before JS runs.*/
 :root {
-    color-scheme: dark;
-    --bg-color: #282424;
-    --text-color: #ffffff;
-    --accent-color: #b9d4e8;
-    --header-bg: #282424;
-    --button-bg: #b9d4e8;
-    --button-text: #282424;
-    --button-outline: #b9d4e8;
-    --card-bg: transparent;
+    color-scheme: light;
+    --bg-color: #ffffff;
+    --text-color: #202122;
+    --heading-color: #101418;
+    --link-color: #0645ad;
+    --header-bg: #f8f9fa;
+    --button-bg: transparent;
+    --button-text: #0645ad;
+    --button-outline: #a2a9b1;
+    --card-bg: #f8f9fa;
+    --card-border: #a2a9b1;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --muted-text: #54595d;
+    --tag-bg: #eaecf0;
 }
 
-/*:root[data-theme="light"] {
-    color-scheme: light;
-    --bg-color: #f5f7fb;
-    --text-color: #1f2937;
-    --accent-color: #0f4c81;
-    --header-bg: #f5f7fb;
-    --button-bg: #0f4c81;
-    --button-text: #ffffff;
-    --button-outline: #0f4c81;
-    --card-bg: transparent;
-    --accent-color : #0f4c81;
-}*/
-
-/*isolation*/
-:root[data-theme="light"] {
-    color-scheme: light;
-    --bg-color: #e9d7ab;
-    --text-color: #aa640e;
-    --accent-color: #6628b3;
-    --header-bg: #e9d7ab;
-    --button-bg: #6628b3;
-    --button-text: #e9d7ab;
-    --button-outline: #6628b3;
-    --card-bg: transparent;
+/*Wikipedia's "night mode" palette, applied only when explicitly toggled on*/
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg-color: #101418;
+    --text-color: #eaecf0;
+    --heading-color: #f8f9fa;
+    --link-color: #8ab4f8;
+    --header-bg: #202122;
+    --button-bg: transparent;
+    --button-text: #8ab4f8;
+    --button-outline: #3b3f45;
+    --card-bg: #1b1e21;
+    --card-border: #3b3f45;
+    --card-shadow: rgba(0, 0, 0, 0.45);
+    --muted-text: #a2a9b1;
+    --tag-bg: #2a2d31;
 }
 
 
@@ -46,7 +41,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /*background-color: var(--bg-color);*/
 }
 
 /*home title styling*/
@@ -54,7 +48,7 @@
     font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--accent-color);
+    color: var(--heading-color);
 }
 
 /*section title styling*/
@@ -62,20 +56,24 @@
     font-size: 30px;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--accent-color);
+    color: var(--heading-color);
 }
 
 .section-title a {
-    color: var(--accent-color);
+    color: var(--link-color);
 }
 
 /*body styling*/
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     color: var(--text-color);
     background-color: var(--bg-color);
     transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden; /*prevents horizontal scrolling*/
+}
+
+a {
+    color: var(--link-color);
 }
 
 /*header styling*/
@@ -87,6 +85,7 @@ body {
     padding: 20px 10%;
     background: transparent;
     background-color: var(--header-bg);
+    border-bottom: 1px solid var(--card-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,8 +95,9 @@ body {
 /*logo styling that slowly reveals "kelly"*/
 .logo {
     position: relative;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 25px;
-    color: var(--text-color);
+    color: var(--heading-color);
     text-decoration: none;
     font-weight: 600;
 }
@@ -108,7 +108,7 @@ body {
     top: 0;
     right: 0;
     width: 100%;
-    height: 100%;            
+    height: 100%;
     background: var(--header-bg);
     animation: showRight 1s ease forwards;
     animation-delay: .4s;
@@ -125,19 +125,19 @@ body {
 }
 
 .navbar a {
-    font-size: 18px;
-    color: var(--text-color);
+    font-size: 16px;
+    color: var(--link-color);
     text-decoration: none;
     font-weight: 500;
     transition: .3s;
 }
 
 .navbar a:hover{
-    color: var(--accent-color);
+    text-decoration: underline;
 }
 .navbar a.active {
     background: transparent;
-    
+
 }
 
 /*profile picture styling*/
@@ -149,7 +149,7 @@ body {
 
 /*home intro section styling*/
 .home-hero {
-    /*replaces old tailwind CSS classes (<div class="flex flex-row justify-between w-screen gap-72 items-center">) 
+    /*replaces old tailwind CSS classes (<div class="flex flex-row justify-between w-screen gap-72 items-center">)
     with custom CSS to allow for more flexibility in styling*/
     display: flex;
     flex-direction: row;
@@ -175,6 +175,11 @@ body {
     max-width: 1000px;
 }
 
+/*wider variant for pages laid out in cards/timelines rather than a single reading column*/
+.home-content.content-wide {
+    max-width: 1100px;
+}
+
 .home-content h1 {
     position: relative;
     font-size: 56px;
@@ -191,75 +196,6 @@ body {
     background: var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: 1.6s;
-}
-
-/*home section buttons styling*/
-.home-content .btn-box {
-    display: flex;
-    justify-content: space-between;
-    width: 345px;
-    height: 50px;
-    background: transparent;
-}
-.btn-box a:hover {
-    color: var(--accent-color);
-}
-.btn-box a {
-    position: relative;
-    display: inline-flex;
-    width: 150px;
-    height: 100%;
-    background: var(--button-bg);
-    border: 2px solid var(--button-outline);
-    border-radius: 8px;
-    font-size: 12px;
-    color: var(--button-text);
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.btn-box a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: var(--bg-color);
-    z-index: -1;
-    transition: 0.5s;
-}
-
-.btn-box a:hover::before {
-    width: 100%;
-}
-.btn-box a:nth-child(2):hover {
-    color: var(--button-text);
-}
-.btn-box a:nth-child(2) {
-    background: transparent;
-    color: var(--accent-color);
-}
-
-.btn-box a:nth-child(2)::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: var(--button-bg);
-    z-index: -1;
-    transition: 0.5s;
-}
-
-.btn-box a:nth-child(2):hover::before {
-    width: 100%;
 }
 
 .logo {
@@ -290,53 +226,14 @@ body {
     width: 40px;
     height: 40px;
     background: transparent;
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--link-color);
     border-radius: 50%;
     font-size: 20px;
-    color: var(--accent-color);
+    color: var(--link-color);
     text-decoration: none;
     z-index: 1;
     overflow: hidden;
 }
-
-/* social media sliding fill (below)*/
-/*.home-sci a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #b9d4e8;
-    z-index: -1;
-    transition: 0.5s;
-}
-
-.home-sci a:hover {
-    color: #282424;
-}
-
-.home-sci a:hover::before {
-    width: 100%;
-}
-
-/* mysterious image hover on homescreen*/
-/*.home-imgHover{
-    position: absolute;
-    top: 0;
-    right: 5px;
-    width: 50%;
-    height: 100%;
-    background: transparent;
-    border: 2px solid #282424;
-    transition: 3s;  
-}
-
-.home-imgHover:hover{
-    background:#282424;
-    opacity: .8;
-}*/
-
 
 /*keyframes animation*/
 @keyframes showRight{
@@ -345,19 +242,13 @@ body {
     }
 }
 
-/*scrolling achievements*/
-.scrollable{
-    height: 450px;
-    overflow-y: auto;
-}
-
 /*scrollbar styling*/
 html {
     overflow: scroll;
     background-color: var(--bg-color);
     transition: background-color 0.3s ease;
   }
-  
+
   ::-webkit-scrollbar {
       width: 0px;
       background: transparent; /*make scrollbar transparent*/
@@ -371,7 +262,15 @@ html {
     padding: 140px 10% 60px; /* top padding of 140px to account for the fixed header, bottom padding of 60px for breathing room */
 }
 .proj-content {
-    max-width: 800px;
+    max-width: 1200px;
+}
+
+/*subtitle under a page heading*/
+.proj-subtitle {
+    color: var(--muted-text);
+    font-size: 17px;
+    max-width: 640px;
+    margin-top: 10px;
 }
 
 .proj-content h1 {
@@ -392,24 +291,16 @@ html {
     animation-delay: 1.6s;
 }
 
-.proj-content .btn-box {
-    display: flex;
-    justify-content: space-between;
-    width: 345px;
-    height: 50px;
-    background: transparent;
-}
-
-/*theme toggle button, display moon in dark mode (default), display sun in light mode*/
-.theme-toggle .theme-icon-light{
+/*theme toggle button, display sun in light mode (default), display moon in dark mode*/
+.theme-toggle .theme-icon-dark{
     display: none;
 }
-:root[data-theme="light"] .theme-toggle .theme-icon-dark{
-    /*hides the moon icon in light mode*/
+:root[data-theme="dark"] .theme-toggle .theme-icon-light{
+    /*hides the sun icon in dark mode*/
     display: none;
 }
-:root[data-theme="light"] .theme-toggle .theme-icon-light{
-    /*shows the sun icon in light mode*/
+:root[data-theme="dark"] .theme-toggle .theme-icon-dark{
+    /*shows the moon icon in dark mode*/
     display: inline-block;
 }
 
@@ -418,7 +309,7 @@ html {
     background: transparent;
     border: none;
     cursor: pointer;
-    color: var(--text-color);
+    color: var(--muted-text);
     font-size: 18px;
     display: inline-flex;
     align-items: center;
@@ -427,18 +318,7 @@ html {
 }
 
 .theme-toggle:hover {
-    color: var(--accent-color);
-}
-
-/*changes the profile picture to the isolation image when in light mode*/
-.profile-img-light {
-    display: none;
-}
-:root[data-theme="light"] .profile-img-dark {
-    display: none;
-}
-:root[data-theme="light"] .profile-img-light {
-    display: inline-block;
+    color: var(--link-color);
 }
 
 /*header overlap permanent fix*/
@@ -494,13 +374,6 @@ html {
         /*keep left alignment of text and image on mobile screens*/
         text-align: left;
     }
-    .btn-box{ /*connect with me and contact me buttons*/
-        width: 100%;
-        max-width: 345px;
-        margin: 0 auto;
-        /*breathing room between buttons and text*/
-        margin-top: 25px;
-    }
 }
 
 /*small mobile sizing (<= 480px) that only applies to content (not the header or navbar)*/
@@ -519,162 +392,396 @@ html {
         justify-content: center;
         gap: 15px;
     }
-    .btn-box{ /*connect with me and contact me buttons*/
-        flex-direction: column;
-        width: 100%;
-        max-width: 345px;
-        gap: 10px;
-        height: auto; /*vertical stacking of buttons, so height is auto instead of 50px*/
-    }
-    .btn-box a{
-        width: 100%;
-        max-width: 345px;
-    }
 }
 
 /*fixes the issue of long words or headings forcing overflow and breaking out of the container*/
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
 
-/*carousel format*/
-.carousel{
-    position: relative;
-    width: 100%;
-    height: 450px;
+/*Wikipedia's article typography: page titles and section headings (h1/h2) use the serif
+  face at normal weight, exactly like Wikipedia's own article headings; sub-headings (h3+)
+  stay in the sans-serif body font at whatever weight their component sets.*/
+h1, h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+/*project grid layout*/
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+    margin-top: 36px;
+}
+
+/*individual project card*/
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
     overflow: hidden;
-    margin-top: 30px; /*spacing between title and carousel container*/
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.carousel-track{
-    display: flex;
-    height: 100%;
-    transition: transform 0.4s ease;
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px var(--card-shadow);
+    border-color: var(--link-color);
 }
 
-.carousel-slide{
-    width: 100%;
-    min-width: 100%;
-    flex-shrink: 0;
-    height: 100%;
-    padding: 30px 50px;
-    overflow-y: auto;
-    display: block;
-    text-align: left;
-}
-
-.carousel-slide h2{
-    margin-bottom: 15px;
-}
-
-.carousel-slide p{
-    line-height:1.6;
-}
-/*arrows for carousel*/
-.carousel-prev, .carousel-next{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    font-size: 32px;
-    color: var(--accent-color);
-    cursor: pointer;
-    z-index: 2;
-}
-
-.carousel-prev{
-    left: 0;
-}
-.carousel-next{
-    right: 0;
-}
-
-.carousel-dots{
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 0;
-}
-
-.carousel-dot{
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--text-color);
-    opacity: 0.4;
-    border: none;
-    cursor: pointer;
-}
-
-.carousel-dot.active{
-    opacity: 1;
-    background: var(--accent-color);
-}
-
-/*images on carousel slide*/
-.carousel-slide img {
-    width: 100%;
-    max-height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-/*accent color for links in carousel slide, added to style linked and imbeds*/
-.carousel-slide p a {
-    color: var(--accent-color);
-}
-
-/*video wrapper for carousel slide*/
-.video-wrapper {
+/*media area shared by video embeds, thumbnails, and icon placeholders*/
+.project-media {
     position: relative;
     width: 100%;
-    max-height: 180px;
     aspect-ratio: 16 / 9;
-    margin-bottom: 15px;
-    border-radius: 8px;
     overflow: hidden;
+    background: var(--card-bg);
 }
 
-.video-wrapper iframe {
+.project-media iframe,
+.project-media img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: none;
+    object-fit: cover;
 }
 
-/*mobile styling for carousel*/
+/*fallback icon tile for projects without a screenshot or demo video*/
+.project-media.project-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    aspect-ratio: 16 / 9;
+}
+
+.project-placeholder i {
+    font-size: 56px;
+    color: var(--muted-text);
+    opacity: 0.6;
+}
+
+.project-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px 24px 24px;
+}
+
+.project-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.project-title {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--link-color);
+}
+
+.project-title a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.project-title a:hover {
+    text-decoration: underline;
+}
+
+.project-year {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--muted-text);
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+}
+
+.project-desc {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+    list-style: none;
+}
+
+.project-tags li {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-color);
+    background: var(--tag-bg);
+    border-radius: 6px;
+    padding: 4px 10px;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--link-color);
+    border: 1.5px solid var(--link-color);
+    border-radius: 8px;
+    padding: 7px 14px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.project-link:hover {
+    background: var(--tag-bg);
+}
+
+/*mobile styling for the project grid*/
 @media (max-width: 768px) {
-    .carousel{
-        height: 600px;
-        width: 100%;
-        max-width: 80vw;
-        margin: 0 auto;
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
     }
+}
 
-    .carousel-prev, .carousel-next {
-        transform: none;
-    }
+/*section headings that introduce a group of cards further down the page (e.g. Education, Skills)*/
+.subsection-title {
+    margin-top: 46px;
+    margin-bottom: 4px;
+}
 
-    .carousel-slide {
-        padding: 20px;
-        padding-bottom: 50px;
-        padding-left: 50px;
-        padding-right: 50px;
-    }
+/*experience timeline*/
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 36px;
+}
 
-    .carousel-slide h2{
-        font-size: 20px;
+.timeline-item {
+    display: flex;
+    gap: 26px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 22px 26px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px var(--card-shadow);
+    border-color: var(--link-color);
+}
+
+.timeline-date {
+    flex: 0 0 150px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.timeline-date span {
+    display: block;
+    font-weight: 500;
+    color: var(--muted-text);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.timeline-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.timeline-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.timeline-role {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.timeline-org {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted-text);
+}
+
+.timeline-bullets {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.timeline-bullets li {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/*education cards, a lighter-weight card style reused under the timeline*/
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.edu-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.edu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px var(--card-shadow);
+    border-color: var(--link-color);
+}
+
+.edu-card h3 {
+    font-size: 17px;
+    color: var(--heading-color);
+    margin-bottom: 2px;
+}
+
+.edu-card .edu-meta {
+    font-size: 13px;
+    color: var(--muted-text);
+    margin-bottom: 10px;
+}
+
+.edu-card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/*skills tag list, reuses the project-tags pill styling at a slightly larger scale*/
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+    list-style: none;
+}
+
+.skills-tags li {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-color);
+    background: var(--tag-bg);
+    border-radius: 8px;
+    padding: 6px 14px;
+}
+
+/*achievements page: full-width stacked boxes, one per category*/
+.achievement-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 36px;
+}
+
+.achievement-card {
+    background: var(--card-bg);
+    border: 2px solid var(--button-outline);
+    border-radius: 8px;
+    padding: 30px 36px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px var(--card-shadow);
+    border-color: var(--link-color);
+}
+
+.achievement-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.achievement-card-header i {
+    font-size: 24px;
+    color: var(--heading-color);
+}
+
+.achievement-card-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.achievement-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.achievement-list li {
+    font-size: 16px;
+    line-height: 1.6;
+    padding-left: 18px;
+    position: relative;
+}
+
+.achievement-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--muted-text);
+}
+
+/*mobile styling for the timeline and education grid*/
+@media (max-width: 768px) {
+    .timeline-item {
+        flex-direction: column;
+        gap: 10px;
     }
-    .carousel-slide img, .video-wrapper {
-        max-height: 150px;
+    .timeline-date {
+        flex: none;
+    }
+    .edu-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -683,8 +790,9 @@ h1, h2 {
 .back-home-btn {
     display: inline-block;
     padding: 12px 30px;
-    background-color: var(--button-bg);
-    color: var(--button-text);
+    background-color: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--link-color);
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
@@ -693,5 +801,301 @@ h1, h2 {
 }
 
 .back-home-btn:hover {
-    opacity: 0.85;
+    background: var(--tag-bg);
+}
+
+/* ============================================================
+   Wikipedia-style article page (index.html)
+   ============================================================ */
+
+.wiki-page {
+    min-height: 100vh;
+    padding: 110px 6% 60px;
+    background-color: var(--bg-color);
+    display: block;
+}
+
+.wiki-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.wiki-container::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/*Article / Talk faux tabs*/
+.wiki-tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--card-border);
+    font-size: 14px;
+}
+
+.wiki-tabs a,
+.wiki-tabs span {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.wiki-tabs a {
+    color: var(--link-color);
+}
+
+.wiki-tabs a:hover {
+    text-decoration: underline;
+}
+
+.wiki-tabs .current {
+    color: var(--heading-color);
+    font-weight: 700;
+    border: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--bg-color);
+    border-radius: 4px 4px 0 0;
+    margin-bottom: -1px;
+}
+
+/*page title, styled like a Wikipedia article heading*/
+.wiki-title {
+    font-size: 34px;
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 8px;
+    margin-top: 16px;
+}
+
+.wiki-byline {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted-text);
+    margin: 8px 0 4px;
+}
+
+/*Read / Edit / View history row*/
+.wiki-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    margin: 8px 0 22px;
+    color: var(--muted-text);
+}
+
+.wiki-toolbar a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.wiki-toolbar a:hover {
+    text-decoration: underline;
+}
+
+.wiki-toolbar .current {
+    color: var(--heading-color);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/*infobox, floated right like a real Wikipedia infobox*/
+.infobox {
+    float: right;
+    width: 280px;
+    margin: 0 0 20px 28px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.infobox-title {
+    background: var(--tag-bg);
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 8px;
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.infobox img {
+    width: 100%;
+    display: block;
+}
+
+.infobox-caption {
+    text-align: center;
+    font-size: 12px;
+    padding: 6px 8px;
+    color: var(--muted-text);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.infobox table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.infobox th,
+.infobox td {
+    padding: 7px 9px;
+    border-top: 1px solid var(--card-border);
+    vertical-align: top;
+    text-align: left;
+    font-size: 13px;
+}
+
+.infobox th {
+    width: 36%;
+    color: var(--muted-text);
+    font-weight: 600;
+}
+
+.infobox td a {
+    color: var(--link-color);
+}
+
+/*lead paragraph*/
+.wiki-lead {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-top: 18px;
+}
+
+.wiki-lead p {
+    margin-bottom: 14px;
+}
+
+/*Contents box*/
+.contents-box {
+    display: inline-block;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    padding: 14px 22px;
+    margin: 10px 0 28px;
+    max-width: 320px;
+}
+
+.contents-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--heading-color);
+}
+
+.contents-box-toggle {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+    background: none;
+    border: none;
+}
+
+.contents-box-toggle:hover {
+    text-decoration: underline;
+}
+
+.contents-list {
+    list-style: none;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.contents-list .num {
+    color: var(--muted-text);
+    margin-right: 6px;
+}
+
+.contents-sublist {
+    list-style: none;
+    margin-left: 20px;
+    font-size: 13.5px;
+}
+
+/*section headings within the article body*/
+.wiki-section h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 6px;
+    margin-top: 36px;
+    margin-bottom: 14px;
+}
+
+.wiki-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+.wiki-section p {
+    line-height: 1.75;
+    margin-bottom: 14px;
+}
+
+.wiki-section .wiki-meta {
+    font-size: 14px;
+    color: var(--muted-text);
+    margin-bottom: 8px;
+}
+
+.wiki-section ul {
+    margin: 0 0 14px 22px;
+}
+
+.wiki-section ul li {
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+/*skills pill list overrides the plain bulleted list styling above*/
+.wiki-section .skills-tags {
+    list-style: none;
+    margin: 4px 0 14px;
+}
+
+/*mobile: infobox stacks above the text instead of floating beside it*/
+@media (max-width: 768px) {
+    .infobox {
+        float: none;
+        width: 100%;
+        margin: 20px 0;
+    }
+    .wiki-title {
+        font-size: 28px;
+    }
+}
+
+/* ============================================================
+   Wiki-style placeholder pages (Projects / Achievements / Experience for now)
+   ============================================================ */
+
+.placeholder-notice {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 4px solid var(--muted-text);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.placeholder-notice a {
+    color: var(--link-color);
 }

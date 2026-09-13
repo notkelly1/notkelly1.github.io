@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Projects </title>
+    <title>Projects - KellyPedia</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -13,14 +13,14 @@
 <body>
     <!--Hamburger Menu for Mobile Screens-->
     <header class="header">
-        <a href="#" class="logo">Kelly.</a>
+        <a href="index.html" class="logo">Kelly.</a>
         <button class = "menu-toggle" type="button" aria-label="Open menu">
             <i class='bx bx-menu'></i>
         </button>
         <!--Navigation Bar Shortcuts-->
         <nav class="navbar">
-            <a href="index.html" class="active"><i class='bx bx-home-alt-2' ></i> Home</a>
-            <a href="projects.html"><i class='bx bx-bookmark' ></i> Projects</a>
+            <a href="index.html"><i class='bx bx-home-alt-2' ></i> Home</a>
+            <a href="projects.html" class="active"><i class='bx bx-bookmark' ></i> Projects</a>
             <a href="achievements.html"><i class='bx bx-star' ></i> Achievements</a>
             <a href="experience.html"><i class='bx bx-list-ul' ></i> Experience</a>
             <!--Dark Mode Toggle Button-->
@@ -30,79 +30,28 @@
             </button>
         </nav>
     </header>
-    <!--Page Contents (scrollable region and bottom buttons)-->
-    <section class="proj">
-        <div class="proj-content">
-            <!--Home title class that includes responsive font size and mobile styling-->
-            <h1 class="home-title">Projects</h1>
-            <!--Scrollable Region for Project Name and Description
-            <div class="scrollable">
-                <br><h2 class="section-title"><a href="https://github.com/erynidye/SightreadShowdown" >Sightread Showdown</a></h2>
-                
-                <p><br>An app that brings community and enjoyment to music practice and sight reading. Users can compete with other users to sight read pieces. Currently, it is able to take audio input, process it, and convert it to a series of pitches and durations. The app then uses the Gemini AI API to compare it to expected pitches and durations, and returns a an accuracy score to determine a winner. Jamhacks 9 (2025)
-                
-                <br><br><h2 class="section-title"><a href="https://github.com/wither-rose/TSF2024" >Home Optimization of Sterilization Economically</a></h2>
-                
-                <p><br>Building a prototype backed by a regression model with data collected through 6 months of experimentation. Promoting an energy-conscious mindset and affordable solutions to household problems. Gold Medal @ TSF (2024)
-                <br><br><h2 class="section-title"><a href="https://studio.code.org/projects/applab/Ylw6PbPn6nHVKLx6sCyOF1x2zAUqIgdOTyzcDobE7Rs" >The Pencil Project</a></h2>
 
-                <br>Raising awareness of the environmental impact of a commonly used item. Building a prototype pencil that is more environmentally conscious, saving 92% of the waste of a traditional pencil when used. Bronze Medal @ TSF (2023)
-
-                <br><br><h2 class="section-title"><a href="https://github.com/notkelly1/notkelly1.github.io">Portfolio Website</a></h2>
-
-                <br> Building a personal website using html, css, and js to showcase my projects, experience, and achievements. (2024)
-            </div></p>-->
-            
-            <!--carousel format for viewing projects-->
-            <div class="carousel">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <!--video embed (youtube) for project demo-->
-                        <div class="video-wrapper">
-                            <iframe 
-                                src="https://www.youtube.com/embed/Xkfq7zCYFog" 
-                                title="Sightread Showdown Demo" 
-                                frameborder="0" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                        <h2 class = "section-title"><a href="https://github.com/erynidye/SightreadShowdown" target="_blank" >Sightread Showdown</a></h2>
-                        <p>An app that brings community and enjoyment to music practice and sight reading. Users can compete with other users to sight read pieces. Currently, it is able to take audio input, process it, and convert it to a series of pitches and durations. The app then uses the Gemini AI API to compare it to expected pitches and durations, and returns a an accuracy score to determine a winner. Jamhacks 9 (2025)<br><br>More info: <a href="https://dorahacks.io/buidl/26378/" target="_blank">Dorahacks</a></p>
-                    </div>
-                    <div class="carousel-slide">
-                        <!--video embed (youtube) for project demo-->
-                        <div class="video-wrapper">
-                            <iframe 
-                                src="https://www.youtube.com/embed/hDZ--jbLrL8" 
-                                title="Home Optimization of Sterilization Economically Demo" 
-                                frameborder="0" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                        <h2 class = "section-title"><a href="https://github.com/wither-rose/TSF2024" target="_blank">Home Optimization of Sterilization Economically</a></h2>
-                        <p>Building a prototype backed by a regression model with data collected through 6 months of experimentation. Promoting an energy-conscious mindset and affordable solutions to household problems. Gold Medal @ TSF (2024)<br><br>More info: <a href="https://devpost.com/software/tsf2024" target="_blank">Devpost</a></p>
-                    </div>
-                    <div class="carousel-slide">
-                        <h2 class = "section-title"><a href="https://studio.code.org/projects/applab/Ylw6PbPn6nHVKLx6sCyOF1x2zAUqIgdOTyzcDobE7Rs" target="_blank">The Pencil Project</a></h2>
-                        <p>Raising awareness of the environmental impact of a commonly used item. Building a prototype pencil that is more environmentally conscious, saving 92% of the waste of a traditional pencil when used. Bronze Medal @ TSF (2023)</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <h2 class = "section-title"><a href="https://github.com/notkelly1/notkelly1.github.io" target="_blank">Portfolio Website</a></h2>
-                        <p>Building a personal website using html, css, and js to showcase my projects, experience, and achievements. (2024)</p>
-                    </div>
-                </div>
-                <!--carousel controls (arrows and dots)-->
-                <button class="carousel-prev" aria-label="Previous slide"><i class='bx bx-chevron-left'></i></button>
-                <button class="carousel-next" aria-label="Next slide"><i class='bx bx-chevron-right'></i></button>
-                <div class="carousel-dots"></div>
+    <section class="wiki-page">
+        <div class="wiki-container">
+            <div class="wiki-tabs">
+                <span class="current">Article</span>
+                <a href="mailto:kelly.wangwzs@gmail.com">Talk</a>
             </div>
-            <!--Bottom Button Shortcuts-->
-            <div class="home-sci">
-                <a href="https://www.linkedin.com/in/zkellywang/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://github.com/notkelly1" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="mailto:kelly.wangwzs@gmail.com" target="_blank"><i class='bx bx-envelope' ></i></a>
+
+            <h1 class="wiki-title">Projects</h1>
+            <p class="wiki-byline">From KellyPedia, the personal encyclopedia</p>
+
+            <div class="wiki-toolbar">
+                <span class="current">Read</span>
+                <a href="https://github.com/notkelly1/notkelly1.github.io/edit/main/projects.html" target="_blank">Edit</a>
+                <a href="https://github.com/notkelly1/notkelly1.github.io/commits/main/projects.html" target="_blank">View history</a>
+            </div>
+
+            <div class="placeholder-notice">
+                <strong>This page is a stub.</strong> Its content currently lives in the <a href="index.html#projects">Projects</a> section of the main <a href="index.html">Kelly Wang</a> article. You can help KellyPedia by expanding this into its own page!
             </div>
         </div>
     </section>
     <script src="script.js"></script>
 </body>
+</html>
