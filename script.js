@@ -1,7 +1,16 @@
 (function () {
     const root = document.documentElement;
+
+    //the site used to default to dark mode; bump this once so anyone with an old saved
+    //preference (from before light became the default) gets reset to light a single time
+    const THEME_DEFAULT_VERSION = '2';
+    if (localStorage.getItem('themeDefaultVersion') !== THEME_DEFAULT_VERSION) {
+        localStorage.removeItem('theme');
+        localStorage.setItem('themeDefaultVersion', THEME_DEFAULT_VERSION);
+    }
+
     const savedTheme = localStorage.getItem('theme');
-    //defaults to light mode unless the user has explicitly picked a theme before
+    //defaults to light mode unless the user has explicitly picked a theme since
     const initialTheme = savedTheme || 'light';
     root.setAttribute('data-theme', initialTheme);
 

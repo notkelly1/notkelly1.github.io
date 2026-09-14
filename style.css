@@ -99,7 +99,7 @@ a {
     font-size: 25px;
     color: var(--heading-color);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .logo::before {
@@ -128,7 +128,7 @@ a {
     font-size: 16px;
     color: var(--link-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     transition: .3s;
 }
 
