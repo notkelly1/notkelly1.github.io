@@ -1031,6 +1031,7 @@ h1, h2 {
     padding-bottom: 6px;
     margin-top: 36px;
     margin-bottom: 14px;
+    clear: both; /*a section never starts beside the previous section's floated photo (e.g. a short last entry with a tall thumb)*/
 }
 
 .wiki-section h3 {
@@ -1039,6 +1040,13 @@ h1, h2 {
     color: var(--heading-color);
     margin-top: 22px;
     margin-bottom: 8px;
+    clear: both; /*always start below a previous entry's floated wiki-thumb, so headings never get squeezed sideways*/
+}
+
+/*opt-out for a short entry that should sit beside the previous entry's tall floated photo
+  (used by the Legislative Assembly entry, which follows the Model UN photo)*/
+.wiki-section h3.no-clear {
+    clear: none;
 }
 
 .wiki-section p {
@@ -1067,9 +1075,91 @@ h1, h2 {
     margin: 4px 0 14px;
 }
 
-/*mobile: infobox stacks above the text instead of floating beside it*/
+/*wiki-style floated thumbnail, matching the infobox look, for embedding linked media
+  (screenshots of an external repo/submission page, placeholder photos, etc.) inside
+  article prose*/
+.wiki-thumb {
+    float: right;
+    width: 280px;
+    max-width: 100%;
+    margin: 4px 0 20px 28px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.wiki-thumb img {
+    width: 100%;
+    height: auto; /*keeps the photo's natural proportions even when the img has a height attribute*/
+    display: block;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.wiki-thumb figcaption {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--muted-text);
+    padding: 6px 8px;
+}
+
+.wiki-thumb figcaption a {
+    color: var(--link-color);
+}
+
+/*wiki-style gallery grid for entries with several photos (thumbnails link to the full-size image);
+  thumbnails are cropped to a uniform 4:3 so mixed portrait/landscape photos line up, biased toward
+  the top so faces are kept*/
+.wiki-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 14px 0 20px;
+    clear: both;
+}
+
+.wiki-gallery figure {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.wiki-gallery img {
+    width: 100%;
+    height: auto; /*override the HTML height attribute (kept only to reserve space while loading), otherwise it distorts the box*/
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.wiki-gallery figcaption {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--muted-text);
+    padding: 6px 8px;
+}
+
+/*section anchors (e.g. the #miku target of the /miku/ redirect) clear the fixed header*/
+.wiki-section,
+.wiki-section h3 {
+    scroll-margin-top: 90px;
+}
+
+@media (max-width: 480px) {
+    .wiki-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/*mobile: infobox and wiki-thumb figures stack above the text instead of floating beside it*/
 @media (max-width: 768px) {
-    .infobox {
+    .infobox,
+    .wiki-thumb {
         float: none;
         width: 100%;
         margin: 20px 0;
@@ -1096,4 +1186,113 @@ h1, h2 {
 
 .placeholder-notice a {
     color: var(--link-color);
+}
+
+/* ============================================================
+   Photography page: justified photo grid + click-to-enlarge viewer
+   ============================================================ */
+
+/*rows fill the full width and keep every photo at its natural proportions (no cropping):
+  each figure's --ar is its width/height ratio, so flex-grow/basis scale with the aspect ratio*/
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 14px 0 26px;
+    clear: both;
+}
+
+.photo-grid figure {
+    margin: 0;
+    flex: var(--ar) 1 calc(var(--ar) * 230px);
+}
+
+/*empty flex item soaks up the leftover space so a short last row isn't stretched*/
+.photo-grid::after {
+    content: '';
+    flex-grow: 999;
+}
+
+.photo-grid a {
+    display: block;
+    line-height: 0;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: auto; /*width/height attributes only reserve space while loading*/
+    display: block;
+    border: 1px solid var(--card-border);
+    border-radius: 3px;
+    transition: opacity 0.2s ease;
+}
+
+.photo-grid a:hover img,
+.photo-grid a:focus-visible img,
+.wiki-gallery a:hover img,
+.wiki-gallery a:focus-visible img {
+    opacity: 0.85;
+}
+
+/*full-screen photo viewer, opened by script.js*/
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200; /*above the fixed header (z-index 100)*/
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 64px;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 2px;
+}
+
+.lightbox-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+    padding: 0 64px;
+    text-align: center;
+    color: #d7d7d7;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.lightbox button {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 0;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.lightbox button:hover,
+.lightbox button:focus-visible {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-close { top: 12px; right: 12px; }
+.lightbox-prev { left: 10px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 10px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 480px) {
+    .lightbox { padding: 56px 8px; }
+    .lightbox-caption { padding: 0 12px; }
+    .lightbox-prev, .lightbox-next { top: auto; bottom: 60px; transform: none; }
 }
