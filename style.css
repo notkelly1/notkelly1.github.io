@@ -1205,12 +1205,7 @@ h1, h2 {
 .photo-grid figure {
     margin: 0;
     flex: var(--ar) 1 calc(var(--ar) * 230px);
-}
-
-/*empty flex item soaks up the leftover space so a short last row isn't stretched*/
-.photo-grid::after {
-    content: '';
-    flex-grow: 999;
+    max-width: calc(var(--ar) * 440px); /*caps photo height at about 440px, so a short last row (or a lone photo) doesn't blow up to full width*/
 }
 
 .photo-grid a {
